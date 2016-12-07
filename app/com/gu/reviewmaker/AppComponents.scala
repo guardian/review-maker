@@ -13,7 +13,8 @@ class AppComponents(context: Context)
 
 
   val healthcheckController = new Healthcheck
+  val applicationController = new Application
 
   val assets = new Assets(httpErrorHandler)
-  val router: Router = new Routes(httpErrorHandler, healthcheckController, assets)
+  val router: Router = new Routes(httpErrorHandler, healthcheckController, applicationController, assets)
 }
