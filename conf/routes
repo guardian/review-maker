@@ -7,6 +7,11 @@ GET        /healthcheck                                                   contro
 
 GET        /                                                              controllers.Application.index
 
+# API
+POST       /api/review                                                    controllers.API.createReview
+GET        /api/review                                                    controllers.API.listAtoms
+GET        /api/review/:id                                                controllers.API.getReviewAtom(id)
+
 
 
 # Map static resources from the /public folder to the /assets URL path

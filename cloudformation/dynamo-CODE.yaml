@@ -1,0 +1,42 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  DraftAtomMakerTable:
+    Description: draft dynamo table
+    Type: String
+    Default: draft-review-atom-maker-CODE
+  PublishedAtomMakerTable:
+    Description: Published dynamo table
+    Type: String
+    Default: published-review-atom-maker-CODE
+
+Resources:
+  DraftReviewAtomMakerTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName:
+        Ref: DraftAtomMakerTable
+      AttributeDefinitions:
+      - AttributeName: id
+        AttributeType: S
+      KeySchema:
+      - AttributeName: id
+        KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: '5'
+        WriteCapacityUnits: '5'
+
+  PublishedReviewAtomMakerTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName:
+        Ref: PublishedAtomMakerTable
+      AttributeDefinitions:
+      - AttributeName: id
+        AttributeType: S
+      KeySchema:
+      - AttributeName: id
+        KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: '5'
+        WriteCapacityUnits: '5'
